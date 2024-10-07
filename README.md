@@ -73,7 +73,7 @@ v-annotate.pl --split --cpu 4 -s --glsearch -r --alt_pass dupregin,discontn -f -
 The VADR model library for HMPV annotation includes 9 HMPV models representing 6 different 
 subgroups: A1, A2a, A2b1, A2b2, B1 and B2.
 The A2b2 subgroup contains an additional 2 models representing two attachment glycoprotein 
-alternate forms, A2b2nt111 and A2b2nt180, containing large inserts.
+alternate forms, A2b2nt111 and A2b2nt180, which contain large inserts.
 There is also an additional model provided in the B1 subgroup.
 ---
 
