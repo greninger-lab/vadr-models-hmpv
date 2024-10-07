@@ -70,9 +70,11 @@ v-annotate.pl --split --cpu 4 -s --glsearch -r --alt_pass dupregin,discontn -f -
 ---
 ## <a name="hmpvmodel"></a>HMPV VADR models
 
-The VADR model library for HMPV annotation includes a single HMPV
-model based on the Refseq sequence [`NC_039199`](https://ncbi.nlm.nih.gov/nuccore/NC_039199.1)
-and 
+The VADR model library for HMPV annotation includes 9 HMPV models representing 6 different 
+subgroups: A1, A2a, A2b1, A2b2, B1 and B2.
+The A2b2 subgroup contains an additional 2 models representing two attachment glycoprotein 
+alternate forms, A2b2nt111 and A2b2nt180, containing large inserts.
+There is also an additional model provided in the B1 subgroup.
 ---
 
 ## <a name="docs"> Additional VADR documentation
