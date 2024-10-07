@@ -1,0 +1,22 @@
+{
+  "version": "1.2",
+  "dbname": "PP947594.vadr.protein.fa",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "/data/vadr-models-hmpv/hmpv/PP947594.vadr.protein.fa",
+  "number-of-letters": 5645,
+  "number-of-sequences": 16,
+  "last-updated": "2024-09-26T01:01:00",
+  "number-of-volumes": 1,
+  "bytes-total": 44540,
+  "bytes-to-cache": 5942,
+  "files": [
+    "PP947594.vadr.protein.fa.pdb",
+    "PP947594.vadr.protein.fa.phr",
+    "PP947594.vadr.protein.fa.pin",
+    "PP947594.vadr.protein.fa.pot",
+    "PP947594.vadr.protein.fa.psq",
+    "PP947594.vadr.protein.fa.ptf",
+    "PP947594.vadr.protein.fa.pto"
+  ]
+}

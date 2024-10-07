@@ -1,0 +1,22 @@
+{
+  "version": "1.2",
+  "dbname": "MZ221202.vadr.protein.fa",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "/data/vadr-models-hmpv/hmpv/MZ221202.vadr.protein.fa",
+  "number-of-letters": 5643,
+  "number-of-sequences": 16,
+  "last-updated": "2024-09-24T23:27:00",
+  "number-of-volumes": 1,
+  "bytes-total": 44563,
+  "bytes-to-cache": 5940,
+  "files": [
+    "MZ221202.vadr.protein.fa.pdb",
+    "MZ221202.vadr.protein.fa.phr",
+    "MZ221202.vadr.protein.fa.pin",
+    "MZ221202.vadr.protein.fa.pot",
+    "MZ221202.vadr.protein.fa.psq",
+    "MZ221202.vadr.protein.fa.ptf",
+    "MZ221202.vadr.protein.fa.pto"
+  ]
+}
