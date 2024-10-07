@@ -71,7 +71,7 @@ v-annotate.pl --split --cpu 4 -s --glsearch -r --alt_pass dupregin,discontn -f -
 ## <a name="hmpvmodel"></a>HMPV VADR models
 
 The VADR model library for HMPV annotation includes a single HMPV
-model based on the Refseq sequence [`NC_039199`](https://ncbi.nlm.nih.gov/nuccore/NC_039199)
+model based on the Refseq sequence [`NC_039199`](https://ncbi.nlm.nih.gov/nuccore/NC_039199.1)
 and 
 ---
 
