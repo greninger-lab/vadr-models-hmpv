@@ -39,7 +39,7 @@ Steps for using VADR for HMPV annotation:
    `<trimmed-fasta-file>`, execute:
 
 ```
-$VADRSCRIPTSDIR/miniscripts/fasta-trim-terminal-ambigs.pl --minlen 50 --maxlen 14000 <input-fasta-file> > <trimmed-fasta-file>
+$VADRSCRIPTSDIR/miniscripts/fasta-trim-terminal-ambigs.pl --minlen 50 --maxlen 16000 <input-fasta-file> > <trimmed-fasta-file>
 ```        
 
 4. Run the `v-annotate.pl` program on an input trimmed fasta file with
