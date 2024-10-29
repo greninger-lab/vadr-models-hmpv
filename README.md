@@ -43,18 +43,10 @@ $VADRSCRIPTSDIR/miniscripts/fasta-trim-terminal-ambigs.pl --minlen 50 --maxlen 1
 ```        
 
 4. Run the `v-annotate.pl` program on an input trimmed fasta file with
-   HMPV sequences using the recommended command and options
-   below (the command is long so you will likely have to scroll to the right to view the entire command).
-
-   ***NOTE: The following command runs multithreaded on up to 4 CPUs,
-   and so is only recommended if you have at least 4 CPUs and 16Gb RAM
-   available. To run on `<n>` CPUs instead, replace `--cpu 4` with
-   `--cpu <n>`. To run single threaded on a single CPU remove the
-   `--cpu 4` option. The `--split` and `--cpu` options are
-   incompatible with `-p`.***
+   HMPV sequences using the recommended command below.
 
 ```
-v-annotate.pl --split --cpu 4 -s --glsearch -r --alt_pass dupregin,discontn -f --keep --mkey hmpv --mdir <hmpv-models-dir-path> <fasta-file-to-annotate> <output-directory-to-create>
+v-annotate.pl -r --mkey hmpv --mdir <hmpv-models-dir-path> <fasta-file-to-annotate> <output-directory-to-create>
 ```
 
 5. After running the `v-annotate.pl` command in step 4, there will be a number of files
@@ -69,12 +61,7 @@ v-annotate.pl --split --cpu 4 -s --glsearch -r --alt_pass dupregin,discontn -f -
 
 ---
 ## <a name="hmpvmodel"></a>HMPV VADR models
-
-The VADR model library for HMPV annotation includes 9 HMPV models representing 6 different 
-subgroups: A1, A2a, A2b1, A2b2, B1 and B2.
-The A2b2 subgroup contains an additional 2 models representing two attachment glycoprotein 
-alternate forms, A2b2nt111 and A2b2nt180, which contain large inserts.
-There is also an additional model provided in the B1 subgroup.
+* The VADR model library for HMPV annotation includes 6 HMPV models representing 6 different subgroups: A1, A2a, A2b1, A2b2, B1 and B2.
 ---
 
 ## <a name="docs"> Additional VADR documentation
