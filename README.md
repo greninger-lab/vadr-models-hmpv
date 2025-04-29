@@ -12,47 +12,50 @@
 ---
 ## <a name="howto"></a>How to annotate HMPV genomes with VADR
 
-Steps for using VADR for HMPV annotation:
+Installation instructions:
 
-1. Download and install the latest version of VADR, following the
-   instructions on this [page](https://github.com/ncbi/vadr/tree/master).
-   Alternatively, you can use the StaPH-B VADR 1.6.3-hav-flu2
-   docker image created by Curtis Kapsak (docker image names:
-   `staphb/vadr:1.6.3-hav-flu2` and `staphb/vadr:latest`), available on 
-   [dockerhub](https://hub.docker.com/r/staphb/vadr/tags) and
-   [quay](https://quay.io/repository/staphb/vadr?tab=tags). A brief
-   [README for the docker image is here](https://github.com/StaPH-B/docker-builds/tree/master/vadr/1.6.3-hav-flu2).
- 
-2. Clone the latest HMPV VADR model from this repository (current release v1.0)<br/>
-   `git clone git@github.com:greninger-lab/vadr-models-hmpv.git`<br/>
-   or download the current release from [here](https://github.com/greninger-lab/vadr-models-hmpv/releases/tag/v1.0).</br>
-   Note the path to the directory name created plus the /hmpv
-   subdirectory as `<hmpv-models-dir-path>`
-   for step 4.
+**1. Install VADR**
 
-4. Remove terminal ambiguous nucleotides from your
-   input fasta sequence file using the `fasta-trim-terminal-ambigs.pl`
-   script in `$VADRSCRIPTSDIR/miniscripts/`.
+Option A: Use a pre-built Docker image
+   Alternatively, you can use the [StaPH-B Docker image](https://github.com/StaPH-B/docker-builds/tree/master/vadr/1.6.3-hav-flu2) for VADR 1.6.3-hav-flu2 created by Curtis Kapsak (docker image names:
+   `staphb/vadr:1.6.3-hav-flu2` and `staphb/vadr:latest`).
+   This is available from: 
+   [DockerHub](https://hub.docker.com/r/staphb/vadr/tags)
+   [Quay](https://quay.io/repository/staphb/vadr?tab=tags)
+   You can pull the image using:
+    ```
+    docker pull --platform linux/amd64 staphb/vadr:1.6.3-hav-flu2
+    ```
 
-   To remove terminal ambiguous nucleotides from your sequence file
-   `<input-fasta-file>` and to remove short and long sequences to create a new trimmed file
-   `<trimmed-fasta-file>`, execute:
+Option B: Install VADR from source
+   Download and install the latest version of VADR, following the
+   instructions on the [VADR GitHub](https://github.com/ncbi/vadr/tree/master).
+
+**2. Download the HMPV VADR Model**
+
+   Clone the latest HMPV VADR model (release v1.0)
+   <br/>
+   `git clone https://github.com/greninger-lab/vadr-models-hmpv.git`
+   <br/>
+
+**3. Run HMPV annotation**
+Note: Nucleotide sequences must be in **FASTA format** and should not be aligned. The software only recognizes IUPAC nucleotide codes and does not accept symbols such as - (which indicate deletions in alingments).
+Remove any **terminal** ambiguous nucleotides (e.g. "N") which typically represent regions with no sequencing coverage. You can use teh script `fasta-trim-terminal-ambigs.pl` located in `$VADRSCRIPTSDIR/miniscripts/` to clean your sequences accoridngly.
+   To remove too short and too long sequences to create a new trimmed file `<trimmed-fasta-file>`, execute:
 
 ```
 $VADRSCRIPTSDIR/miniscripts/fasta-trim-terminal-ambigs.pl --minlen 50 --maxlen 16000 <input-fasta-file> > <trimmed-fasta-file>
 ```        
 
-4. Run the `v-annotate.pl` program on an input trimmed fasta file with
-   HMPV sequences using the recommended command below.
+Run the `v-annotate.pl` program on the trimmed fasta file with HMPV sequences using the recommended command below. 
+   Note the path to the directory name including the /hmpv subdirectory as `<hmpv-models-dir-path>`
 
 ```
-v-annotate.pl -r --mkey hmpv --mdir <hmpv-models-dir-path> <fasta-file-to-annotate> <output-directory-to-create>
+v-annotate.pl -r --mkey hmpv --mdir <hmpv-models-directory-path> <fasta-file-to-annotate> <output-directory-to-create>
 ```
 
-5. After running the `v-annotate.pl` command in step 4, there will be a number of files
-   generated in the `<output-directory-to-create>`. Among these files, there are 5-column
-   tab-delimited feature table files that end with the suffix `.tbl`. There is a separate
-   file for passing (`XXXXX.vadr.pass.tbl`) and failing (`XXXXX.vadr.fail.tbl`) sequences.
+After running the `v-annotate.pl` command in step 4, there will be a number of files generated in the `<output-directory-to-create>`. Among these files, there are 5-column tab-delimited feature table files that end with the suffix `.tbl`. 
+   There is a separate file for passing (`XXXXX.vadr.pass.tbl`) and failing (`XXXXX.vadr.fail.tbl`) sequences.
    The format of the `.tbl` files is described here:
    https://www.ncbi.nlm.nih.gov/genbank/feature_table/
 
