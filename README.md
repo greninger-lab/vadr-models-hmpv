@@ -39,25 +39,22 @@ Option B: Install VADR from source
    <br/>
 
 **3. Run HMPV annotation**
-Note: Nucleotide sequences should be in fasta format and should not be aligned as the software onlt recognize IUPAC letters, no symbols such as - (indicative of nucletoide deletions in alingments).
-Remove terminal ambiguous nucleotides such as "N" (indicative of no covered sequencing regions) from your
-   input sequences. For this purpose you can use `fasta-trim-terminal-ambigs.pl`
-   script in `$VADRSCRIPTSDIR/miniscripts/`.
-
+Note: Nucleotide sequences must be in **FASTA format** and should not be aligned. The software only recognizes IUPAC nucleotide codes and does not accept symbols such as - (which indicate deletions in alingments).
+Remove any **terminal** ambiguous nucleotides (e.g. "N") which typically represent regions with no sequencing coverage. You can use teh script `fasta-trim-terminal-ambigs.pl` located in `$VADRSCRIPTSDIR/miniscripts/` to clean your sequences accoridngly.
    To remove too short and too long sequences to create a new trimmed file `<trimmed-fasta-file>`, execute:
 
 ```
 $VADRSCRIPTSDIR/miniscripts/fasta-trim-terminal-ambigs.pl --minlen 50 --maxlen 16000 <input-fasta-file> > <trimmed-fasta-file>
 ```        
 
-4. Run the `v-annotate.pl` program on the trimmed fasta file with HMPV sequences using the recommended command below. 
+Run the `v-annotate.pl` program on the trimmed fasta file with HMPV sequences using the recommended command below. 
    Note the path to the directory name including the /hmpv subdirectory as `<hmpv-models-dir-path>`
 
 ```
 v-annotate.pl -r --mkey hmpv --mdir <hmpv-models-directory-path> <fasta-file-to-annotate> <output-directory-to-create>
 ```
 
-5. After running the `v-annotate.pl` command in step 4, there will be a number of files generated in the `<output-directory-to-create>`. Among these files, there are 5-column tab-delimited feature table files that end with the suffix `.tbl`. 
+After running the `v-annotate.pl` command in step 4, there will be a number of files generated in the `<output-directory-to-create>`. Among these files, there are 5-column tab-delimited feature table files that end with the suffix `.tbl`. 
    There is a separate file for passing (`XXXXX.vadr.pass.tbl`) and failing (`XXXXX.vadr.fail.tbl`) sequences.
    The format of the `.tbl` files is described here:
    https://www.ncbi.nlm.nih.gov/genbank/feature_table/
