@@ -17,7 +17,8 @@ Installation instructions:
 **1. Install VADR**
 
 Option A: Use a pre-built Docker image
-   Alternatively, you can use the [StaPH-B Docker image](https://github.com/StaPH-B/docker-builds/tree/master/vadr/1.6.3-hav-flu2) for VADR 1.6.3-hav-flu2 created by Curtis Kapsak (docker image names:
+   
+   You can use the [StaPH-B Docker image](https://github.com/StaPH-B/docker-builds/tree/master/vadr/1.6.3-hav-flu2) for VADR 1.6.3-hav-flu2 created by Curtis Kapsak (docker image names:
    `staphb/vadr:1.6.3-hav-flu2` and `staphb/vadr:latest`).
    This is available from: 
    [DockerHub](https://hub.docker.com/r/staphb/vadr/tags)
@@ -28,7 +29,8 @@ Option A: Use a pre-built Docker image
     ```
 
 Option B: Install VADR from source
-   Download and install the latest version of VADR, following the
+   
+   Alternatively, yo can download and install the latest version of VADR, following the
    instructions on the [VADR GitHub](https://github.com/ncbi/vadr/tree/master).
 
 **2. Download the HMPV VADR Model**
